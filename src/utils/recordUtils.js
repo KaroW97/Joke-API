@@ -1,9 +1,5 @@
-const { readFile, writeFile } = require('../components/common')
-const {
-  sortElements,
-  createRecord,
-  createNewJson
-} = require('../components/record')
+const { readFile, writeFile } = require('./common')
+const { sortElements, createRecord, createNewJson } = require('./record')
 
 /**
  * Create new json file
@@ -42,7 +38,7 @@ const appendToFile = async (file, data, createNewRecord) => {
  */
 const recordCheck = async (data) => {
   // Get file data
-  const parsedData = await readFile()
+  const parsedData = await readFile(data.id)
 
   // Check if provided data already exists
   const foundDataById = parsedData[data.id]
@@ -53,11 +49,8 @@ const recordCheck = async (data) => {
   // If data doesn't exist pass assign data to variable
   const newRecord = !foundDataById ? data : {}
 
-  // If data doesn't exist set flat to true to create New record
-  const createNewRecord = !foundDataById ? true : false
-
-  // Add data to the file
-  appendToFile(parsedData, newRecord, createNewRecord)
+  // Add data to the file.  If data doesn't exist set flat to true to create New record
+  appendToFile(parsedData, newRecord, !foundDataById)
 }
 
 module.exports = {

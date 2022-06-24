@@ -1,7 +1,7 @@
 const { callApi } = require('../api/callJokeApi')
-const { checkIfFileExists } = require('../components/common')
+const { checkIfFileExists } = require('../utils/common')
 const { createFile, recordCheck } = require('../utils/recordUtils')
-const { getJoke } = require('../components/record')
+const { getJoke } = require('../utils/record')
 
 /**
  * Main function for coordinating calls to joke API, creating new file or overwriting it

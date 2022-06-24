@@ -1,4 +1,4 @@
-const { FLAGS } = require('../components/common')
+const { FLAGS } = require('./common')
 
 /**
  *

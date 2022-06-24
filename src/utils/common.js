@@ -31,18 +31,20 @@ const parseData = (data) => JSON.parse(data.toString())
 /**
  * @returns {Promise<JSON>} Data from read file
  */
-const readFile = async () => {
+const readFile = async (id) => {
   let data = ''
   const CHUNK_SIZE = 10000000 //10MB
 
   const stream = fs.createReadStream(FILE_NAME, { highWaterMark: CHUNK_SIZE })
 
   return new Promise((resolve, rejects) => {
-    stream.on('data', (chunk) => {
-      data += chunk.toString()
-    })
+    stream.on('data', (chunk) => (data += chunk.toString()))
 
-    stream.on('end', () => resolve(parseData(data)))
+    stream.on('end', () => {
+      let parsed = parseData(data)
+
+      resolve(parsed)
+    })
     stream.on('error', (error) => rejects(error))
   })
 }

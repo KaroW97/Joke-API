@@ -1,5 +1,5 @@
 const https = require('node:https')
-const { parseData } = require('../components/common')
+const { parseData } = require('../utils/common')
 const { validateTerm } = require('../utils/validation')
 
 /**

@@ -1,7 +1,7 @@
 const { jokeHandler } = require('./handlers/findJoke')
 const { mostPopularhandler } = require('./handlers/mostPopular')
 const { validateInputs } = require('./utils/validation')
-const { FLAGS } = require('./components/common')
+const { FLAGS } = require('./utils/common')
 
 /**
  * General function responsible for coordinating calls

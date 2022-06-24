@@ -1,4 +1,4 @@
-const { checkIfFileExists, readFile } = require('../components/common')
+const { checkIfFileExists, readFile } = require('../utils/common')
 
 /**
  * Function is responsible for returning the most popular joke in the joke.json file
