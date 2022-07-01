@@ -18,7 +18,7 @@ exports.invoke = async ([flag, term]) => {
   // When flag is leaderboard read file and find most popular joke
   if (flag === FLAGS.leaderboard) {
     const test = await mostPopularhandler()
-    // eslint-disable-next-line no-undef
+
     process.stdout.write(test + '\n')
   }
 }

@@ -13,8 +13,7 @@ exports.jokeHandler = async (term) => {
     const jokes = await callApi(term)
 
     if (!jokes.length) {
-      // eslint-disable-next-line no-undef
-      console.log(
+      console.info(
         '\x1b[31m%s\x1b[0m',
         `No joke had been found for given term: '${term}'`
       )

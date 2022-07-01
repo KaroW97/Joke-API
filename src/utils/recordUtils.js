@@ -37,20 +37,14 @@ const appendToFile = async (file, data, createNewRecord) => {
  * @param {Record<string, string>} data - data found by joke API
  */
 const recordCheck = async (data) => {
-  // Get file data
-  const parsedData = await readFile(data.id)
-
-  // Check if provided data already exists
-  const foundDataById = parsedData[data.id]
-
-  // If does increment repetitions
-  if (foundDataById) foundDataById.repetitions++
+  // Get file data and check if id is already in the file
+  const { parsed, isRepeated } = await readFile(data.id)
 
   // If data doesn't exist pass assign data to variable
-  const newRecord = !foundDataById ? data : {}
+  const newRecord = !isRepeated ? data : {}
 
   // Add data to the file.  If data doesn't exist set flat to true to create New record
-  appendToFile(parsedData, newRecord, !foundDataById)
+  appendToFile(parsed, newRecord, !isRepeated)
 }
 
 module.exports = {

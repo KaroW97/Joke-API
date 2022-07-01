@@ -43,7 +43,12 @@ const readFile = async (id) => {
     stream.on('end', () => {
       let parsed = parseData(data)
 
-      resolve(parsed)
+      // Check if provided data already exists
+      if (parsed[id])
+        // If does increment repetitions
+        parsed[id].repetitions++
+
+      resolve({ parsed, isRepeated: !!parsed[id] })
     })
     stream.on('error', (error) => rejects(error))
   })
