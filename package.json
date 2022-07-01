@@ -1,0 +1,27 @@
+{
+  "name": "dad-joke-api",
+  "version": "1.0.0",
+  "description": "* The first is to call Joke API and write a new joke to \"joke.json\" file.\r * The second is to print the most popular joke.",
+  "main": "main.js",
+  "scripts": {
+    "joke": "node main",
+    "lint": "eslint -c @eslintrc/.eslintrc.js src/**/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaroW97/Dad-Joke-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaroW97/Dad-Joke-API/issues"
+  },
+  "homepage": "https://github.com/KaroW97/Dad-Joke-API#readme",
+  "devDependencies": {
+    "eslint": "^8.17.0"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0"
+  }
+}
